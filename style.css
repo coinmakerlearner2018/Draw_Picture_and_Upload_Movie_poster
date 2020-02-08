@@ -1,0 +1,49 @@
+.brush-box {
+  margin-left: 50px;
+    width: 20px;
+    height: 20px;
+    background-color: black;
+}
+
+
+
+    header {
+        
+        display: flex;
+        flex-direction: row; 
+
+        background-color: black;
+        height: 50px;
+        background: rgba(0,0,0, .5);
+        padding: 20px 0;
+        border-bottom: black 3px solid;
+
+}
+   
+
+.pixel {
+    
+  padding: 1em;
+  border: 1px solid #ddd;
+  text-align: center;
+
+  }
+
+
+
+.canvas {
+    display: grid;
+    /* grid-gap: 1em; */
+    grid-template-rows: repeat(var(--grid-rows), 50px);
+    grid-template-columns: repeat(var(--grid-cols), 50px);
+    background: no-repeat center center fixed;
+  }
+
+  .form-color {
+    margin-left: 30px;
+  }
+
+  .form-movie {
+    margin-left: 50px;
+
+  }

@@ -1,4 +1,4 @@
-// var declaration
+
 var formColor = document.querySelector('.form-color')
 var input = document.querySelector('input')
 var button = document.querySelector('button')
@@ -9,17 +9,25 @@ var input = document.querySelector('input')
 var handleClick = e => {
   e.preventDefault()
   brushBox.style.backgroundColor = input.value  
+  canvas.addEventListener('mouseover', handlePaint)
   
-  // 2. =============================
-  let pixels = document.querySelectorAll('.pixel')
-  
-  for(pixel of pixels){
-    pixel.addEventListener('mouseover', handlePaint)
-    pixel.addEventListener('click', handleGreenPaint)
+}
+
+function handlePaint(e){
     
-    // pixel.addEventListener('click', handleGreenPaint)
-  }
-  // ==================================
+    if (e.target.classList.contains('pixel') && ){
+          e.target.style.backgroundColor = input.value
+          e.target.dataset.colorFilled1 = input.value
+          e.target.addEventListener('click', handleGreenPaint)
+    }
+  
+}
+
+var handleGreenPaint = (e) => {
+    
+    e.target.style.backgroundColor = "green"
+  
+  
 }
 
 
@@ -38,27 +46,6 @@ formColor.addEventListener('submit', handleClick)
 // if(e.target.classList.contains('.pixel')){
   // }
   
-  var handleGreenPaint = (e) => {
-    
-    e.target.style.backgroundColor = "green"
-    e.target.removeEventListener('mouseover', handlePaint)
-    e.target.addEventListener('click', handleSwitchToMouseOverOrignalColor)
-  }
-  
-  function handlePaint(e){
-    
-    e.target.style.backgroundColor = input.value
-    e.target.addEventListener('click', handleGreenPaint)
-  }
-  
-
-  function handleSwitchToMouseOverOrignalColor(e){
-    
-    e.target.style.backgroundColor = input.value
-    e.target.removeEventListener('click', handleGreenPaint)
-    e.target.addEventListener('mouseover', handlePaint)
-    
-  }
   var makeRows = (rows, cols) => {
     canvas.style.setProperty('--grid-rows', rows)
     canvas.style.setProperty('--grid-cols', cols)

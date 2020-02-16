@@ -10,23 +10,31 @@ var handleClick = e => {
   e.preventDefault()
   brushBox.style.backgroundColor = input.value  
   canvas.addEventListener('mouseover', handlePaint)
-  
+
 }
 
 function handlePaint(e){
     
-    if (e.target.classList.contains('pixel') && ){
+    if (e.target.classList.contains('pixel') && e.target.dataset.colorFilled2 !== "green" && e.target.dataset.eventAction !== "mouseover"){
           e.target.style.backgroundColor = input.value
           e.target.dataset.colorFilled1 = input.value
+          e.target.dataset.eventAction = "mouseover"
           e.target.addEventListener('click', handleGreenPaint)
     }
   
 }
 
 var handleGreenPaint = (e) => {
-    
-    e.target.style.backgroundColor = "green"
   
+  if(e.target.dataset.colorFilled1 === input.value){
+    e.target.style.backgroundColor = "green"
+    e.target.dataset.colorFilled1 = "green"
+  }else{
+    e.target.style.backgroundColor = input.value
+    e.target.dataset.colorFilled1 = input.value
+    e.target.dataset.eventAction = ""
+  }
+    // e.target.dataset.colorFilledw = input.value
   
 }
 
